@@ -7,8 +7,6 @@ const PORT = process.env.PORT || 3000
 
 var Users = [];
 
-application.use(express.static(__dirname + '/assets/'))
-
 application.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });

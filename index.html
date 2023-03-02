@@ -5,45 +5,18 @@
     <title>SocketsChat</title>
     <script src="/socket.io/socket.io.js"></script>
     <style>
-        body {
-            background-color: black;
-            color: aliceblue;
-
-        }
-
-        #message_list{
-            width: 95%;
-            border-width: 2px;
-            border-color: aliceblue;
-        }
-
-        div {
-            margin: 2%;
-        }
-
-        .all_style{
-            width: 30%;
-            float: left;
-            background-color: white;
-            color: black;
-        }
-
-        .your_style{
-            width: 30%;
-            float: right;
-            background-color: aquamarine;
-            color: black;   
-        }
-
-        .all_messages {
-            display: flex;
-            justify-content: start;
-        }
-
-        .your_messages {
-            display: flex;
-            justify-content: end;
-        }
+        *{font-size: 20px;}
+        p{background-color: red; width: 30%; border-radius: 5px;}
+        body {background-color: black; color: aliceblue;}
+        input{font-size: 15px;}
+        img{width: 150px; height: 150px; margin-left: 10px;}
+        #message_list{width: 95%; border-width: 2px; border-color: aliceblue;}
+        div {margin: 1%;}
+        .all_style{width: 30%; float: left ;background-color: blueviolet; color: black; border-radius: 5px;}
+        .your_style{width: 30%; float: right; background-color: blue; color: black; border-radius: 5px;}
+        .all_messages {display: flex; justify-content: start}
+        .your_messages {display: flex; justify-content: end;}
+        #file_area{border-style: dashed;}
     </style>
 </head>
 
@@ -52,8 +25,8 @@
     <form id="message_area" action="">
         <input id="text_area" autocomplete="off" />
         <input id="file_area" type="file">
-        <button>Send</button>
-    </form>
+        <button>Enviar</button>
+    </form> 
 
     <script>
         const socket = io();
@@ -173,7 +146,6 @@
                     chatItem1.className += 'all_messages';
                     chatItem.className += 'all_style';
                 }
-            chatItem.textContent = origin + ': ' + data.message;
             chatItem.append(origin + ' : ' + data.message);
             var img = new Image();
             img.src = data.file;
